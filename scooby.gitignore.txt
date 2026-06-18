@@ -1,0 +1,13 @@
+# Ignore large vendor/plugin folders
+admin/assets/plugins/
+assets/plugins/
+
+# Ignore uploaded user files
+admin/gallery/
+admin/productimages/
+admin/blogimages/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+*.log

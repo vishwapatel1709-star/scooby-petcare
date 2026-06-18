@@ -1,0 +1,394 @@
+<?php
+include("includes/config.php");
+$ret = mysqli_query($con, "select * from products");
+$row = mysqli_fetch_all($ret, MYSQLI_ASSOC);
+// var_dump($row);
+// exit;
+?>
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<!-- Mirrored from demo.egenslab.com/html/scooby/preview/shop.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Jan 2024 09:23:41 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooby - Petcare & Pet Shop HTML Template</title>
+    <link rel="icon" href="assets/images/sm-logo.svg" type="image/gif" sizes="20x20">
+
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="assets/css/odometer.css">
+
+    <link rel="stylesheet" href="assets/css/datepicker.min.css">
+
+    <link rel="stylesheet" href="assets/css/uiicss.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+
+    <header class="header-area style-1">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="header-logo">
+                <a href="index-2.php"><img alt="image" class="img-fluid" src="assets/images/header1-logo.svg"></a>
+            </div>
+            <div class="main-menu">
+                <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
+                    <div class="mobile-logo-wrap">
+                        <a href="index-2.php"><img alt="image" src="assets/images/header1-logo.svg"></a>
+                    </div>
+                    <div class="menu-close-btn">
+                        <i class="bi bi-x-lg text-white"></i>
+                    </div>
+                </div>
+                <ul class="menu-list">
+                    <li class="menu-item-has-children">
+                        <a href="#" class="drop-down">Home</a><i class="bi bi-plus dropdown-icon"></i>
+                        <ul class="sub-menu">
+
+                            <li><a href="index3.php">Home</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.php">About</a></li>
+
+                    <li class="menu-item-has-children">
+                        <a href="#" class="drop-down">Pages</a><i class="bi bi-plus dropdown-icon"></i>
+                        <ul class="sub-menu">
+
+                            <li><a href="3col-gallery.php">Gallery</a></li>
+
+                            <li><a href="error.php">Error</a></li>
+                            <li><a href="login.php">Login</a></li>
+                            <li><a href="sign-up.php">Sign Up</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children active">
+                        <a href="#">Shop</a><i class="bi bi-plus dropdown-icon"></i>
+                        <ul class="sub-menu">
+                            <li class="active"><a href="shop.php">Shop</a></li>
+                            <li><a href="shop-details.php">Shop Details</a></li>
+                            <li><a href="cart.php">Cart</a></li>
+                            <li><a href="check-out.php">Check Out</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Blog</a><i class="bi bi-plus dropdown-icon"></i>
+                        <ul class="sub-menu">
+                            <li><a href="blog-grid.php">Blog Grid</a></li>
+
+                            <li><a href="blog-standard.php">Blog Standard</a></li>
+                            <li><a href="blog-details.php">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.php">Contact</a></li>
+                </ul>
+                <div class="for-mobile-menu d-lg-none d-block">
+                    <div class="hotline mb-5">
+                        <div class="hotline-info">
+                            <span>Click To Call</span>
+                            <h6><a href="tel:+1(541)754-3010">+1 (541) 754-3010</a></h6>
+                        </div>
+                    </div>
+                    <ul class="social-link mb-5">
+                        <li><a href>
+                                <svg width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.4147 1.51371C11.0037 0.302997 8.92573 0.534835 7.61736 1.87434L7.12993 2.38954L6.61684 1.87434C5.33413 0.534835 3.23047 0.302997 1.81948 1.51371C0.203258 2.90473 0.126295 5.37767 1.56294 6.87174L6.53988 12.0237C6.84773 12.3586 7.38647 12.3586 7.69433 12.0237L12.6713 6.87174C14.1079 5.37767 14.0309 2.90473 12.4147 1.51371Z" />
+                                </svg>
+                            </a></li>
+                        <li><a href>
+                                <svg width="16" height="13" viewBox="0 0 16 13" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.6365 5.46266C15.6365 5.12721 15.3541 4.84336 15.0202 4.84336H13.274L10.5262 1.07601C10.2694 0.688956 9.75576 0.611544 9.39624 0.895386C9.01104 1.15342 8.934 1.6695 9.21648 2.03075L11.2452 4.84336H5.21036L7.2391 2.03075C7.52158 1.6695 7.44454 1.15342 7.05934 0.895386C6.69982 0.611544 6.18621 0.688956 5.92941 1.07601L3.18163 4.84336H1.46105C1.10153 4.84336 0.844727 5.12721 0.844727 5.46266V5.87552C0.844727 6.23677 1.10153 6.49481 1.46105 6.49481H1.66649L2.33418 11.2169C2.41122 11.8362 2.92482 12.2749 3.54115 12.2749H12.9144C13.5308 12.2749 14.0444 11.8362 14.1214 11.2169L14.8148 6.49481H15.0202C15.3541 6.49481 15.6365 6.23677 15.6365 5.87552V5.46266ZM8.85696 10.0041C8.85696 10.3654 8.57447 10.6234 8.24063 10.6234C7.88111 10.6234 7.6243 10.3654 7.6243 10.0041V7.1141C7.6243 6.77865 7.88111 6.49481 8.24063 6.49481C8.57447 6.49481 8.85696 6.77865 8.85696 7.1141V10.0041ZM11.7331 10.0041C11.7331 10.3654 11.4507 10.6234 11.1168 10.6234C10.7573 10.6234 10.5005 10.3654 10.5005 10.0041V7.1141C10.5005 6.77865 10.7573 6.49481 11.1168 6.49481C11.4507 6.49481 11.7331 6.77865 11.7331 7.1141V10.0041ZM5.98077 10.0041C5.98077 10.3654 5.69829 10.6234 5.36445 10.6234C5.00492 10.6234 4.74812 10.3654 4.74812 10.0041V7.1141C4.74812 6.77865 5.00492 6.49481 5.36445 6.49481C5.69829 6.49481 5.98077 6.77865 5.98077 7.1141V10.0041Z" />
+                                </svg>
+                            </a></li>
+                        <li><a href>
+                                <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1585_341)">
+                                        <path d="M6.98716 0.938832C6.28609 1.04711 5.65949 1.38227 5.169 1.90563C4.62972 2.48055 4.3498 3.14571 4.31128 3.94235C4.25735 5.0561 4.80177 6.12086 5.74167 6.73703C6.20391 7.04125 6.64818 7.19594 7.18747 7.23977C8.18643 7.31711 9.03901 7.00258 9.72724 6.29875C10.2742 5.74188 10.5516 5.13344 10.6183 4.35743C10.7108 3.32102 10.3205 2.3568 9.54234 1.68133C9.03901 1.24821 8.57676 1.03164 7.93733 0.938832C7.62916 0.895004 7.26964 0.892426 6.98716 0.938832Z" />
+                                        <path d="M4.65531 7.29655C3.49456 7.4203 2.68821 8.25561 2.31327 9.7303C2.06418 10.7126 1.99998 11.8933 2.15919 12.5405C2.29016 13.0587 2.71902 13.5846 3.21465 13.8373C3.43807 13.9507 3.75907 14.0435 4.02871 14.0744C4.18793 14.0951 5.40004 14.1002 7.71896 14.0951L11.1729 14.0873L11.3912 14.0255C12.2027 13.8037 12.7574 13.2572 12.9603 12.4889C13.0656 12.0893 13.0527 11.1354 12.9295 10.3826C12.6598 8.70678 11.9767 7.70131 10.8956 7.38678C10.6491 7.31459 10.2074 7.26045 10.0764 7.28623C9.95057 7.30944 9.77594 7.40225 9.38047 7.65749C8.95931 7.93077 8.90025 7.9617 8.58438 8.0803C8.21972 8.21694 7.91926 8.27624 7.56745 8.27624C7.20792 8.27624 6.93058 8.22467 6.56592 8.09577C6.2218 7.97202 6.20639 7.96428 5.66711 7.62139C5.38463 7.44092 5.17405 7.32491 5.09187 7.3017C4.94806 7.26561 4.94806 7.26561 4.65531 7.29655Z" />
+                                    </g>
+                                </svg>
+                            </a></li>
+                    </ul>
+                    <form class="mobile-menu-form">
+                        <div class="input-with-btn d-flex flex-column">
+                            <input type="text" placeholder="Search here...">
+                            <button class="primary-btn1" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="nav-right d-flex jsutify-content-end align-items-center">
+                <ul>
+                    <li class="search-btn"><a>
+                            <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.8914 12.3212L11.3164 9.74312C11.1877 9.63999 11.0332 9.56265 10.8787 9.56265H10.4667C11.1619 8.6603 11.5997 7.52593 11.5997 6.26265C11.5997 3.32358 9.1792 0.900146 6.2437 0.900146C3.28245 0.900146 0.887695 3.32358 0.887695 6.26265C0.887695 9.22749 3.28245 11.6251 6.2437 11.6251C7.4797 11.6251 8.6127 11.2126 9.5397 10.4908V10.9291C9.5397 11.0837 9.5912 11.2384 9.71995 11.3673L12.2692 13.9197C12.5267 14.1775 12.9129 14.1775 13.1447 13.9197L13.8657 13.1978C14.1232 12.9658 14.1232 12.5791 13.8914 12.3212ZM6.2437 9.56265C4.41545 9.56265 2.9477 8.09312 2.9477 6.26265C2.9477 4.45796 4.41545 2.96265 6.2437 2.96265C8.0462 2.96265 9.5397 4.45796 9.5397 6.26265C9.5397 8.09312 8.0462 9.56265 6.2437 9.56265Z" />
+                            </svg>
+                        </a>
+                        <form class="nav__search-form">
+                            <input type="text" placeholder="Search Products" id="search" autocomplete="off">
+                            <button type="submit">
+                                <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.8914 12.3212L11.3164 9.74312C11.1877 9.63999 11.0332 9.56265 10.8787 9.56265H10.4667C11.1619 8.6603 11.5997 7.52593 11.5997 6.26265C11.5997 3.32358 9.1792 0.900146 6.2437 0.900146C3.28245 0.900146 0.887695 3.32358 0.887695 6.26265C0.887695 9.22749 3.28245 11.6251 6.2437 11.6251C7.4797 11.6251 8.6127 11.2126 9.5397 10.4908V10.9291C9.5397 11.0837 9.5912 11.2384 9.71995 11.3673L12.2692 13.9197C12.5267 14.1775 12.9129 14.1775 13.1447 13.9197L13.8657 13.1978C14.1232 12.9658 14.1232 12.5791 13.8914 12.3212ZM6.2437 9.56265C4.41545 9.56265 2.9477 8.09312 2.9477 6.26265C2.9477 4.45796 4.41545 2.96265 6.2437 2.96265C8.0462 2.96265 9.5397 4.45796 9.5397 6.26265C9.5397 8.09312 8.0462 9.56265 6.2437 9.56265Z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+
+                    <li><a href="cart.php">
+                            <svg width="16" height="13" viewBox="0 0 16 13" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.6365 5.46266C15.6365 5.12721 15.3541 4.84336 15.0202 4.84336H13.274L10.5262 1.07601C10.2694 0.688956 9.75576 0.611544 9.39624 0.895386C9.01104 1.15342 8.934 1.6695 9.21648 2.03075L11.2452 4.84336H5.21036L7.2391 2.03075C7.52158 1.6695 7.44454 1.15342 7.05934 0.895386C6.69982 0.611544 6.18621 0.688956 5.92941 1.07601L3.18163 4.84336H1.46105C1.10153 4.84336 0.844727 5.12721 0.844727 5.46266V5.87552C0.844727 6.23677 1.10153 6.49481 1.46105 6.49481H1.66649L2.33418 11.2169C2.41122 11.8362 2.92482 12.2749 3.54115 12.2749H12.9144C13.5308 12.2749 14.0444 11.8362 14.1214 11.2169L14.8148 6.49481H15.0202C15.3541 6.49481 15.6365 6.23677 15.6365 5.87552V5.46266ZM8.85696 10.0041C8.85696 10.3654 8.57447 10.6234 8.24063 10.6234C7.88111 10.6234 7.6243 10.3654 7.6243 10.0041V7.1141C7.6243 6.77865 7.88111 6.49481 8.24063 6.49481C8.57447 6.49481 8.85696 6.77865 8.85696 7.1141V10.0041ZM11.7331 10.0041C11.7331 10.3654 11.4507 10.6234 11.1168 10.6234C10.7573 10.6234 10.5005 10.3654 10.5005 10.0041V7.1141C10.5005 6.77865 10.7573 6.49481 11.1168 6.49481C11.4507 6.49481 11.7331 6.77865 11.7331 7.1141V10.0041ZM5.98077 10.0041C5.98077 10.3654 5.69829 10.6234 5.36445 10.6234C5.00492 10.6234 4.74812 10.3654 4.74812 10.0041V7.1141C4.74812 6.77865 5.00492 6.49481 5.36445 6.49481C5.69829 6.49481 5.98077 6.77865 5.98077 7.1141V10.0041Z" />
+                            </svg>
+                        </a></li>
+                    <li><a href="login.php">
+                            <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1585_341)">
+                                    <path d="M6.98716 0.938832C6.28609 1.04711 5.65949 1.38227 5.169 1.90563C4.62972 2.48055 4.3498 3.14571 4.31128 3.94235C4.25735 5.0561 4.80177 6.12086 5.74167 6.73703C6.20391 7.04125 6.64818 7.19594 7.18747 7.23977C8.18643 7.31711 9.03901 7.00258 9.72724 6.29875C10.2742 5.74188 10.5516 5.13344 10.6183 4.35743C10.7108 3.32102 10.3205 2.3568 9.54234 1.68133C9.03901 1.24821 8.57676 1.03164 7.93733 0.938832C7.62916 0.895004 7.26964 0.892426 6.98716 0.938832Z" />
+                                    <path d="M4.65531 7.29655C3.49456 7.4203 2.68821 8.25561 2.31327 9.7303C2.06418 10.7126 1.99998 11.8933 2.15919 12.5405C2.29016 13.0587 2.71902 13.5846 3.21465 13.8373C3.43807 13.9507 3.75907 14.0435 4.02871 14.0744C4.18793 14.0951 5.40004 14.1002 7.71896 14.0951L11.1729 14.0873L11.3912 14.0255C12.2027 13.8037 12.7574 13.2572 12.9603 12.4889C13.0656 12.0893 13.0527 11.1354 12.9295 10.3826C12.6598 8.70678 11.9767 7.70131 10.8956 7.38678C10.6491 7.31459 10.2074 7.26045 10.0764 7.28623C9.95057 7.30944 9.77594 7.40225 9.38047 7.65749C8.95931 7.93077 8.90025 7.9617 8.58438 8.0803C8.21972 8.21694 7.91926 8.27624 7.56745 8.27624C7.20792 8.27624 6.93058 8.22467 6.56592 8.09577C6.2218 7.97202 6.20639 7.96428 5.66711 7.62139C5.38463 7.44092 5.17405 7.32491 5.09187 7.3017C4.94806 7.26561 4.94806 7.26561 4.65531 7.29655Z" />
+                                </g>
+                            </svg>
+                        </a></li>
+                </ul>
+                <div class="sidebar-button mobile-menu-btn ">
+                    <i class="bi bi-list"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="inner-page-banner">
+        <div class="breadcrumb-vec-btm">
+            <img class="img-fluid" src="assets/images/bg/inner-banner-btm-vec.png" alt>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-lg-6 align-items-center">
+                    <div class="banner-content">
+                        <h1>Shop</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index-2.php">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner-img d-lg-block d-none">
+                        <div class="banner-img-bg">
+                            <img class="img-fluid" src="assets/images/bg/inner-banner-vec.png" alt>
+                        </div>
+                        <img class="img-fluid" src="assets/images/bg/inner-banner-img.png" alt>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="shop-page pt-120 mb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop-sidebar">
+
+                        <div class="shop-widget">
+                            <div class="check-box-item">
+                                <h5 class="shop-widget-title">Category</h5>
+                                <div class="checkbox-container">
+                                    <label class="containerss">Pet Food
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Pet Grooming
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Pet Travel
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Pet Toys
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Pet Bedding & Mats
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Pet Bowls & Dinner
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Pet Health & Hygine
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shop-widget">
+                            <div class="check-box-item">
+                                <h5 class="shop-widget-title">Subcategories</h5>
+                                <div class="checkbox-container">
+                                    <label class="containerss">Dog Food
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="containerss">Cat Food
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row mb-50">
+                        <div class="col-lg-12">
+                            <div class="multiselect-bar">
+                                <h6>shop</h6>
+                                <div class="multiselect-area">
+                                    <div class="single-select">
+                                        <span>Show</span>
+                                        <select class="defult-select-drowpown" id="color-dropdown">
+                                            <option selected value="0">12</option>
+                                            <option value="1">15</option>
+                                            <option value="2">18</option>
+                                            <option value="3">21</option>
+                                            <option value="4">25</option>
+                                        </select>
+                                    </div>
+                                    <div class="single-select two">
+                                        <select class="defult-select-drowpown" id="eyes-dropdown">
+                                            <option selected value="0">Default</option>
+                                            <option value="1">Grid</option>
+                                            <option value="2">Closed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <?php
+                        foreach($row as $items){ ?>
+
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="collection-card">
+                            <div class="offer-card">
+                                    <span>Offer</span>
+                                </div>
+                                <div class="collection-img">
+                                    <img class="img-gluid" style=height:200px;width:200px; src="<?php echo IMAGEURL.$items['productImage1']?>" alt>
+                                    <div class="view-dt-btn">
+                                        <div class="plus-icon">
+                                            <i class="bi bi-plus"></i>
+                                        </div>
+                                        <a href="shop-details.php?id=<?php echo $items['id'];?>">View Details</a>
+                                    </div>
+                                    <ul class="cart-icon-list">
+                                        <li><a href="cart.php"><img src="assets/images/icon/Icon-cart3.svg" alt></a></li>
+                                        <li><a href="#"><img src="assets/images/icon/Icon-favorites3.svg" alt></a></li>
+                                    </ul>
+                                </div>
+
+
+
+                                <div class="collection-content text-center">
+                                    <h4> <a href="shop-details.php?id=<?php echo $items['id'];?>"><?php echo $items['productName'];?></a></h4>
+                                    <div class="price">
+                                        <h6>₹<?php echo $items['productPrice'];?></h6>
+                                        <del>₹<?php echo $items['productPriceBeforeDiscount'];?></del>
+                                    </div>
+                                    <div class="review">
+                                        <ul>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                        </ul>
+                                        <span>(50)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php 
+                        } 
+                     ?>
+                    </div>
+                    <div class="row pt-70">
+                        <div class="col-lg-12 d-flex justify-content-center">
+                            <div class="paginations-area">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-left-short"></i></a></li>
+                                        <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">03</a></li>
+                                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right-short"></i></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.timepicker.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/jquery.nice-select.js"></script>
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <script src="assets/js/morphext.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.marquee.min.js"></script>
+    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/SmoothScroll.js"></script>
+    <script src="assets/js/jquery.nice-number.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+<!-- Mirrored from demo.egenslab.com/html/scooby/preview/shop.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Jan 2024 09:23:42 GMT -->
+
+</html>
