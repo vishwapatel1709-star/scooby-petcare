@@ -1,6 +1,43 @@
 # 🐾 Scooby - Pet Care & Shop Website
 
-A full-stack web application for a pet care and shop business built as a bachelor's academic project.
+A full-stack web application for a pet care and shop business, built as a bachelor's academic project.
+
+## 🌐 Preview
+
+### Home Page
+![Home Page](screenshots/01-home-page.png)
+
+### Shop Page
+![Shop Page](screenshots/03-shop-page.png)
+
+### Cart Page
+![Cart Page](screenshots/04-cart-page.png)
+
+### About Page
+![About Page](screenshots/02-about-page.png)
+
+### Blog Page
+![Blog Page](screenshots/05-blog-page.png)
+
+### Contact Page
+![Contact Page](screenshots/06-contact-page.png)
+
+## 🔐 Admin Panel
+
+### Admin Login
+![Admin Login](screenshots/07-admin-login.png)
+
+### Manage Users
+![Manage Users](screenshots/08-admin-manage-users.png)
+
+### Category Management
+![Category Management](screenshots/09-admin-category.png)
+
+### Product Management
+![Product Management](screenshots/10-admin-product-page.png)
+
+### Reports Dashboard
+![Reports](screenshots/11-admin-reports.png)
 
 ## 🌟 Features
 - User registration and login system
@@ -12,6 +49,7 @@ A full-stack web application for a pet care and shop business built as a bachelo
   - Blogs
   - Orders (pending/delivered)
   - Users & Feedbacks
+  - Reports
 
 ## 🛠️ Tech Stack
 - **Frontend:** HTML, CSS, Bootstrap, JavaScript, jQuery
@@ -27,12 +65,12 @@ A full-stack web application for a pet care and shop business built as a bachelo
 5. Import `scooby.sql` into that database
 6. Visit `localhost/scooby/` in your browser
 
-## 🔐 Admin Panel
+## 🔑 Admin Panel Access
 - **URL:** `localhost/scooby/admin/`
 - **Username:** `admin`
 - **Password:** `Test@123`
 
-## 📸 Pages Included
+## 📄 Pages Included
 - Home, About, Contact
 - Shop, Shop Details, Cart, Checkout
 - Blog Grid, Blog Standard, Blog Details
