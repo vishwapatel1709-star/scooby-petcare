@@ -36,9 +36,6 @@ A full-stack web application for a pet care and shop business, built as a bachel
 ### Product Management
 ![Product Management](screenshots/10-admin-product-page.png)
 
-### Reports Dashboard
-![Reports](screenshots/11-admin-reports.png)
-
 ## 🌟 Features
 - User registration and login system
 - Product shop with categories and subcategories
